@@ -1,0 +1,4 @@
+10 marks
+1x2 marks - draw blosum matrix
+5x1 marks - perform local alignment, difference b/w primary and secondary databases, calculate p-value and e-value, use of blast tools like 'tblastx'
+6x0.5 marks - define metabases, use of tools like 'blastx', 

@@ -1,0 +1,6 @@
+will get 1/4 of the question weigtage if left blank
+1) what is .mat and .fig used for?(2 marks)
+2) which has higher capacitance and resistance- neurons with small cross section area vs larger cross section area.(2 marks)
+3) 
+4) what is banghum method.(2 marks)
+5) how to determine rigidity of liposome(something like that)(1 mark)

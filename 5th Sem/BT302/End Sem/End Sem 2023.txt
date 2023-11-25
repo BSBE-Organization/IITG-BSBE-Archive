@@ -1,0 +1,16 @@
+Total marks= 50
+1) a) What are single and pair end read. Write 2 advantages of pair end read.- 3 marks
+b) Veema has 150 samples of RNA to use in CHIP seq. How much length of barcode is required?- 2 marks
+2) a) Relationship between given organism from evolution tree.- 3 marks
+b) 4 phylogenic tree given with rotated roots. Question was if all of them were same(like in slide 101 from slides).- 2 marks
+3) a) Make phylogenetic profile of the given data.(There were 10 genes across 5 organisms)- 5 marks
+b) We have 10 related protiens. 2 of them have one directional best hit and 4 of them do not have best hit. How many MOC do we have.- 2 marks(not sure about this one)
+4) a) An unrooted tree is given with 1 missing 5 bp sequence. 5 probable sequence are given for the missing sequence. Use Maximum Parsimony method to find the most probable sequence.- 3 marks
+b) Hemoglobin gene tree is made of rabbit, cow, dog and mice. It is compared with species tree and the trees do not match. What phenomenon is this called?- 2 marks
+5) a) Identify the format of the sequence.(FASTQ was given). Find the best quality of sequence from the data.- 2 marks
+b) Find the probability of error if Q value of the base is 25.- 2 marks
+c) 3 reads are given with reference. Find its CIGAR sequence.- 3 marks
+6) Normal and tumour data is given of P Q R S gene and tell if Q gene is underexpressed or overexpressed using TPM method.- 7 marks
+7) Draw phylogenic tree of given data of 5 sequences(Same data from the slides)- 8 marks
+8) a) Why are there 2 peaks(sense and antisense tags) in CHIP seq graph.- 3 marks
+b) Describe MACS method in CHIP seq.- 3 marks

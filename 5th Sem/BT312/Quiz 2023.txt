@@ -1,0 +1,11 @@
+10 marks quiz in thummer half
+1) Optical components of microscope.
+2) What is paratope and epitope.
+3) What is triton X100? For what it cannot be used?
+4) Which technique align the cells in straight line for analysis. Write its principle.
+5) What is the significance of side scatter and forward scatter. What information does it give.
+6) Write a technique to amplify DNA. Write its principle.
+7) What is hookes law. Name a techniques that uses it.
+8) Which technique is used to determine 3D topography of sample surface. Name its components.
+9) Which technique is used to determine 2D topography of sample surface and electrical property. Name its components.
+10) Full form of SEM. Write 4 applications.

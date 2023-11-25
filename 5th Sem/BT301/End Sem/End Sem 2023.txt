@@ -1,0 +1,30 @@
+Part A- 5 marks- to be done in the paper
+1) What are the protein aggregates in alzheimer and parkinson
+2) Use Goldmann equation, k+ and na+ ion concentration was given inside and out and permeability
+3) Tell what the matlab code does.(Plot sin(10*pi*t) with time from 0.01, 0.02..., 1)
+4) What is Tc
+5) 2 characterstics of drug delivery system
+
+Part 2- 35 marks- to be done in answer sheets
+1) a) Discuss Action potential of a neuron from an electrical viewpoint. Highlight how frequency
+coding is achieved by using a stimulating electrode and battery source in squid neurons- 3 marks
+b) Name 2 type of synapses- 1 mark
+c) In Hodgkin Huxley model, if rate of change of 𝐼(𝑡) with respect to time at some instant is 0.2 mA/S and value of 𝐼(𝑡) at that instant is 1mA. Determine the sum of ionic currents at that instant. Take C=100 microFarad. Assume U is a function of input current. 𝑈 = 𝑓{𝐼(𝑡)}, 𝑓(𝑥) = 𝑒−𝑥 +𝑥2 (same as pyq)- 3 marks
+2) a) 
+b) 
+c) 
+3) a) Lecture 9 slide 23 image with arrows as blank
+i) Discuss protein aggregate
+ii) What are chaperone molecules
+iii) Are native folded state toxic to human cell?
+b) What are dopamine and glutamate?
+c) Action potential can have varying shapes. Select one of the below i) False ii) True iii) Question framed is wrong iv) None of the above
+4) a) Describe bulking in terms of cytoskeleton
+b) Write the equation linking ionic current and membrane permeability in a neuron. Briefly explain- 3 marks
+c) 
+d) 2 biophysical method to analyse biomolecules
+e) Sketch lipid monolayer and tell one of its applications
+5) a) What is .fig and .mlx file in matlab.- 2 marks
+b) Discuss how STM works.- 2 marks
+c) Question 5b. from pyq- 2 marks
+d) Discuss HP model with multiple protein interaction, how it form protein aggregate, diagram- 2 marks

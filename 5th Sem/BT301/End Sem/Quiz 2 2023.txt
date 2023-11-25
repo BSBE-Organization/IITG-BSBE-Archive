@@ -1,0 +1,6 @@
+same 1/4 rule as last quiz, every question 2 marks
+1) Calculate membrane potential with give ion concentration with nerst equation.
+2) Explain significance of HH model.
+3) Explain HP protein folding with properly labelled diagram.
+4) Explain any 2 biophysical method with example of application.
+5) Explain the matlab code(the code took input of ion concentation inside and outside and stored it in an array)

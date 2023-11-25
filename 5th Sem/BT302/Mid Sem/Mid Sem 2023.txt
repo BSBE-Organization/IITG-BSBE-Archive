@@ -1,0 +1,17 @@
+Section A(5x2 marks)
+Q) how will you calculate information content from PSSM table
+Q) All possible sequence of representations- [AG]-A-T-{AT} (something like this)
+Q) Weather forecast possibility(cloudy, sunny, rainy) for next 10 days by using the table like in the slide HMM. Sequence given was like-"SRRRRCSCRRR"(something like this) Values from the table were missing(??) so we had to find them by adding them and equating to 1.
+Q) HMM model was given and we had to find the missing values.
+Q) Find eucledian distance from the given 2 sequence with word count = 3.
+
+Section B(5x4 marks)
+Q) Calculate entropy of given sequences
+Q) Find probability of sequence from HMM using forward algorithm(table was given with missing values). Sequence was 4 letter
+Q) Perform global alignment and find best matches
+Q) PSSM with table calculate maximum motif score
+Q) Make phylogenic tree with given table
+
+Section C(2x5 marks)
+Q) HMM model(table with missing values again) was given and we had to find path taken and probability(had to use Viterbi algorithm)
+Q) 4 sequence were given(6 letter each) with marked motif(3 letter), perform Gibbs Sampling Method to find best motif.
