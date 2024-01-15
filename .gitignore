@@ -1,3 +1,77 @@
 # .gitignore
-._.DS_Store
-DS_Store
+
+# macOS Finder metadata
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Windows system file
+desktop.ini
+
+# IntelliJ IDEA project files
+.idea/
+
+# Visual Studio Code settings
+.vscode/
+
+# Eclipse project files
+.classpath
+.project
+
+# Eclipse settings
+.settings/
+
+# Node.js dependencies
+node_modules/
+
+# Build output directories
+build/
+dist/
+out/
+
+# Log files
+*.log
+npm-debug.log*
+
+# Python compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Node.js package lock files
+package-lock.json
+yarn.lock
+
+# Ruby Gemfile lock file
+Gemfile.lock
+
+# Python dependency lock files
+Pipfile.lock
+pipenv.lock
+
+# Environment variable files
+.env
+.env.local
+
+# Temporary/swap files
+*.swp
+*~
+
+# Compiled binary files
+*.class
+*.jar
+
+# macOS specific files
+._*
+
+# Database files
+*.sqlite
+*.db
+
+# Windows specific files
+# .gitignore should exclude files containing sensitive information like API keys, passwords, etc.
+
+# Operating system files
+.Trashes/
+.Spotlight-V100/
