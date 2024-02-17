@@ -1,0 +1,22 @@
+10 marks quiz- Half marks each
+Q) Which of the following is continuous and discrete data.
+Q) Which of the following is quantitative and qualitatiive data.
+Q) Plot mosaic plot of the following data.
+Q) 
+
+1 mark each
+Q) A derivative of this question was asked-
+Let us take an example of finding the probability of having a disease given that the test is positive.
+The information given is that the prevalence of the disease (let us say) is 0.15%.
+A rapid test kit has been prepared with
+Sensitivity (true positive rate) of the test = 95%
+Specificity (true negative rate) of the test =90%
+What is the probability (chance) that a person has the disease given that he/she has already tested positive.
+
+Q) Chance of winning a hockey match is 0.6. Prob of winning at least 3 out of 7 matches. Calculate average and variance.
+
+Q) What are explanatory and response variable in the following graphs.
+
+Q) Box plot was given- tell which of the plot has more outliers, average etc.
+
+Q) Basic question of bayes' theorem
