@@ -1,2 +1,3 @@
 One word, fill in the blank, true/false- dont remember weightage
-A problem was given to us(we want to amplify our given sample DNA) and we had to tell what technique will be used(like PCR, inverse PCR, colony PCR etc and not just PCR), the steps and name of each specific steps used in the technique(like transformation). Had several part and was a difficult question. Had multiple parts(probably around 10)- 20 marks
+
+10 different problems were given to us(like: if we want to amplify our given sample DNA) and we had to tell what technique will be used to solve those problems(like PCR, inverse PCR, colony PCR etc), the steps and name of each specific steps used in the technique(like transformation, restriction enzyme degradation).(2 marks for each problem) Was a difficult question.- 20 marks
