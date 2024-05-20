@@ -1,0 +1,48 @@
+title RIBOSOME EXAMPLE 5 
+
+default sheet 
+
+res ace 
+
+res ala 
+
+res arg 
+
+res asn 
+
+res asp 
+
+res cys 
+
+res gly 
+
+res gln 
+
+res glu 
+
+res his 
+
+res ile 
+
+res leu 
+
+res lys 
+
+res met 
+
+res phe 
+
+res pro phi -70.0
+
+res ser 
+
+res thr 
+
+res trp 
+
+res tyr 
+
+res val 
+
+res nme 
+

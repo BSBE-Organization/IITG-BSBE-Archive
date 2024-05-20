@@ -1,8 +1,0 @@
-Very, very difficult exam
-10 marks exam- 13 questions with 0.5 and 1 marks weightage
-question types- Fill in the blank(1 question), MCQs(2-3 questions) and MCQ with multiple answers correct without partial marking(majorly these ones...)
-long questions with questions like:
--type of hypersensitivity
--which of the diseases are type 3 hypersensitivity(5 diseases name with multiple correct)
--antibodies from an infection is binding to heart cells, this is an example of ______. (5 options, ans is cross linking)
--fill in the blank with answer anergy

@@ -1,0 +1,208 @@
+
+# sample command file. this builds the peptide as a helix 
+
+#except for the glycine which has a phi of 90.0 and psi of 0.0 
+
+TITLE RIBOSOME EXAMPLE 2
+
+default helix
+res cys phi -77.53 psi -40.3
+
+res leu phi -54.46 psi -35.95
+
+res asn phi -50.15 psi -41.81
+
+res asp phi -55.4 psi -43.66
+
+res trp phi -50.82 psi -37.98
+
+res ser phi -74.23 psi -56.55
+
+res ala phi -52.17 psi -53.48
+
+res phe phi -52.83 psi -52.52
+
+res asn phi -69.4 psi -44.23
+
+res met phi -69.24 psi -34.6
+
+res asn phi -53.65 psi -49.6
+
+res trp phi -71.59 psi -49.3
+
+res met phi -61.15 psi -50.99
+
+res asn phi -78.04 psi -34.57
+
+res ala phi -51.2 psi -48.01
+
+res ser phi -59.76 psi -57.86
+
+res phe phi -64.44 psi -49.64
+
+res phe phi -64.06 psi -29.66
+
+res phe phi -64.71 psi -39.45
+
+res ala phi -60.39 psi -33.39
+
+res glu phi -63.85 psi -41.53
+
+res tyr phi -50.66 psi -46.54
+
+res glu phi -77.74 psi -42.5
+
+res ala phi -60.8 psi -50.66
+
+res cys phi -54.68 psi -30.13
+
+res ala phi -61.35 psi -36.64
+
+res leu phi -54.6 psi -44.22
+
+res val phi -52.07 psi -51.45
+
+res cys phi -77.13 psi -30.02
+
+res ile phi -54.85 psi -34.37
+
+res ala phi -79.35 psi -48.45
+
+res asp phi -56.01 psi -56.6
+
+res leu phi -62.53 psi -55.2
+
+res lys phi -54.77 psi -47.86
+
+res glu phi -79.38 psi -26.62
+
+res thr phi -57.03 psi -27.66
+
+res his phi -66.99 psi -36.31
+
+res met phi -78.95 psi -57.69
+
+res ala phi -65.04 psi -44.74
+
+res trp phi -58.48 psi -28.06
+
+res leu phi -62.54 psi -53.76
+
+res thr phi -77.52 psi -27.97
+
+res arg phi -63.0 psi -48.31
+
+res glu phi -71.57 psi -26.7
+
+res gln phi -51.47 psi -41.8
+
+res ile phi -61.41 psi -38.44
+
+res thr phi -76.59 psi -29.72
+
+res val phi -53.94 psi -46.07
+
+res ala phi -52.59 psi -32.24
+
+res phe phi -59.47 psi -33.67
+
+res leu phi -52.12 psi -32.69
+
+res thr phi -61.76 psi -52.02
+
+res cys phi -67.85 psi -50.46
+
+res phe phi -68.37 psi -31.34
+
+res phe phi -79.65 psi -48.03
+
+res leu phi -72.91 psi -42.63
+
+res lys phi -66.02 psi -43.22
+
+res asp phi -60.52 psi -53.3
+
+res arg phi -75.95 psi -39.06
+
+res tyr phi -52.8 psi -53.24
+
+res leu phi -79.14 psi -55.61
+
+res arg phi -50.78 psi -57.24
+
+res phe phi -57.6 psi -36.3
+
+res asn phi -74.98 psi -34.9
+
+res ile phi -70.92 psi -52.1
+
+res ile phi -58.61 psi -31.52
+
+res pro phi -57.52 psi -41.69
+
+res cys phi -78.76 psi -27.24
+
+res thr phi -52.05 psi -46.61
+
+res ala phi -50.4 psi -50.78
+
+res gly phi 90.0 psi 0.0
+
+res tyr phi -75.91 psi -48.02
+
+res lys phi -65.84 psi -29.59
+
+res thr phi -65.08 psi -55.43
+
+res leu phi -53.13 psi -53.53
+
+res ser phi -70.0 psi -29.84
+
+res ser phi -50.82 psi -44.67
+
+res met phi -58.22 psi -58.2
+
+res tyr phi -56.15 psi -34.56
+
+res lys phi -74.46 psi -38.08
+
+res glu phi -68.15 psi -53.78
+
+res val phi -70.35 psi -34.18
+
+res phe phi -56.85 psi -30.51
+
+res leu phi -75.75 psi -56.88
+
+res gln phi -60.85 psi -31.14
+
+res glu phi -61.63 psi -42.9
+
+res gly phi 90.0 psi 0.0
+
+res ser phi -61.71 psi -58.86
+
+res trp phi -50.47 psi -59.63
+
+res thr phi -68.74 psi -30.86
+
+res cys phi -63.38 psi -37.9
+
+res trp phi -79.19 psi -57.95
+
+res ile phi -74.38 psi -26.18
+
+res his phi -74.36 psi -45.72
+
+res val phi -59.47 psi -30.52
+
+res asn phi -56.72 psi -35.53
+
+res cys phi -54.48 psi -53.84
+
+res glu phi -51.21 psi -56.16
+
+res glu phi -63.2 psi -56.59
+
+res glu phi -73.04 psi -46.57
+

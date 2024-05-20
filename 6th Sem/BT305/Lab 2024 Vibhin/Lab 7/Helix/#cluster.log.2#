@@ -1,0 +1,30 @@
+Using gromos method for clustering
+Using RMSD cutoff 0.15 nm
+The RMSD ranges from 0.038796 to 0.406054 nm
+Average RMSD is 0.174077
+Number of structures for matrix 101
+Energy of the matrix is 0.827564.
+
+Found 6 clusters
+
+Writing middle structure for each cluster to clusters.pdb
+
+cl. | #st  rmsd | middle rmsd | cluster members
+  1 |  72  0.135 |    780 .110 |      0     50     60     70     80    140    150
+    |           |             |    160    170    180    190    200    210    220
+    |           |             |    230    240    250    260    270    280    290
+    |           |             |    310    320    330    340    350    360    370
+    |           |             |    380    390    400    410    420    430    440
+    |           |             |    450    460    470    480    490    500    510
+    |           |             |    520    530    540    550    560    570    580
+    |           |             |    590    600    610    620    630    640    650
+    |           |             |    660    670    680    690    700    710    720
+    |           |             |    730    740    760    770    780    790    800
+    |           |             |    850    890
+  2 |  13  0.130 |    750 .103 |     10     20     30     40     90    100    110
+    |           |             |    120    130    750    810    820    880
+  3 |  10  0.148 |    940 .129 |    840    910    920    930    940    950    960
+    |           |             |    970    990   1000
+  4 |   4  0.113 |    870 .102 |    830    860    870    900
+  5 |   1       |    300      |    300
+  6 |   1       |    980      |    980
