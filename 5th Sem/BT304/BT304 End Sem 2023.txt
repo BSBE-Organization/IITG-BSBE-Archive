@@ -9,7 +9,7 @@ Part B- Subjective- 20 marks
 5) Causes mechanism which lead to autoimmunity- 2 marks
 6) Discuss central and peripheral tolerance. Explain its significance.- 2 marks
 7) Define vaccine, its principle and discuss its types- 2 marks
-8) Injuries of immune attack on extracelullar bacteria- 2 marks
+8) Injuries of immune attack on extracellular bacteria- 2 marks
 9) Explain how CAR T cells works and its advantage and disadvantage.- 2 marks
 10) What is nasal vaccination. Advantage and disadvantage- 3 marks
 11) Describe and draw how Ig is transported to mucosal layer from its source.- 3 marks
@@ -17,4 +17,4 @@ Part B- Subjective- 20 marks
 a) Bacterial septic shock
 b) Antigenic shift vs drift
 c) NK cells role in intracellular bacteria and virus infection
-b) Bacterial superantigen
+d) Bacterial superantigen
