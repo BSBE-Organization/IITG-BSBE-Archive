@@ -1,6 +1,6 @@
 # Study Material Archive
 
-Welcome to the Study Material Archive repository of Biosciences & Bioengineering of IITG!. This repository is collection of study materials including class notes, lecture slides, previous year questions, and recommended books, organized by year and semester.
+Welcome to the Study Material Archive repository of Biosciences & Bioengineering of IITG! This repository is collection of study materials including class notes, lecture slides, previous year questions, and recommended books, organized by year and semester.
 
 ## About
 
