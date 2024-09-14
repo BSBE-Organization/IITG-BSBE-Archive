@@ -6,9 +6,9 @@ Welcome to the Study Material Archive repository of Biosciences & Bioengineering
 
 This repository is created by Aditya Jindal [210106004] and Sumit Kumar [210106076] to facilitate easy access to study materials for students. Whether you're preparing for exams, revising class lectures, or simply seeking additional resources, we hope this archive proves to be a valuable asset in your academic journey.
 
-## How to Use
+Course Review Sheet: https://docs.google.com/spreadsheets/d/1s0Gl7YIuJwLQuCiUUsZDfm66CpXBYQY6Laaj_at_sIc/edit?usp=sharing
 
-https://docs.google.com/spreadsheets/d/1s0Gl7YIuJwLQuCiUUsZDfm66CpXBYQY6Laaj_at_sIc/edit?usp=sharing
+## How to Use
 
 The study materials are organized by year and semester, making it easy to locate resources relevant to your current courses. Simply navigate to the respective directories to find the materials you need.
 
