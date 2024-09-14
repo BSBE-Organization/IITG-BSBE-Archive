@@ -8,6 +8,8 @@ This repository is created by Aditya Jindal [210106004] and Sumit Kumar [2101060
 
 ## How to Use
 
+https://docs.google.com/spreadsheets/d/1s0Gl7YIuJwLQuCiUUsZDfm66CpXBYQY6Laaj_at_sIc/edit?usp=sharing
+
 The study materials are organized by year and semester, making it easy to locate resources relevant to your current courses. Simply navigate to the respective directories to find the materials you need.
 
 Feel free to contribute to this repository by adding more study materials or improving existing ones. Contributions in the form of class notes, lecture slides, additional questions, or recommended books are highly appreciated. Just fork the repository, make your changes, and submit a pull request.
