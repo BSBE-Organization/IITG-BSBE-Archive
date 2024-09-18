@@ -3,7 +3,7 @@ Q) how will you calculate information content from PSSM table
 Q) All possible sequence of representations- [AG]-A-T-{AT} (something like this)
 Q) Weather forecast possibility(cloudy, sunny, rainy) for next 10 days by using the table like in the slide HMM. Sequence given was like-"SRRRRCSCRRR"(something like this) Values from the table were missing(??) so we had to find them by adding them and equating to 1.
 Q) HMM model was given and we had to find the missing values.
-Q) Find eucledian distance from the given 2 sequence with word count = 3.
+Q) Find Euclidian distance from the given 2 sequence with word count = 3.
 
 Section B(5x4 marks)
 Q) Calculate entropy of given sequences
