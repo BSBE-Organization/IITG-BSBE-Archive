@@ -1,0 +1,68 @@
+gmx pdb2gmx -f 1pgb.pdb -o 1pgb_processed.gro -water spce -ignh
+gmx editconf -f 1pgb_processed.gro -o 1pgb_newbox.gro -c -d 1.0 -bt cubic
+gmx solvate -cp 1pgb_newbox.gro -cs spc216.gro -o 1pgb_solv.gro -p topol.top
+gmx grompp -f ions.mdp -c 1pgb_solv.gro -p topol.top -o ions.tpr -maxwarn 3
+gmx genion -s ions.tpr -o 1pgb_solv_ions.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15
+gmx grompp -f minim.mdp -c 1pgb_solv_ions.gro -p topol.top -o em.tpr -maxwarn 3
+gmx mdrun -v -deffnm em
+gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr -maxwarn 3
+gmx mdrun -v -deffnm nvt
+gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr -maxwarn 3
+gmx mdrun -deffnm npt
+gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_1.tpr -maxwarn 3
+gmx mdrun -v -deffnm md_1
+
+
+gmx pdb2gmx -f sumittrpcage.pdb -o trp_processed.gro -water spce -ignh
+gmx editconf -f trp_processed.gro -o trp_newbox.gro -c -d 1.0 -bt cubic
+gmx solvate -cp trp_newbox.gro -cs spc216.gro -o trp_solv.gro -p topol.top
+gmx grompp -f ions.mdp -c trp_solv.gro -p topol.top -o ions.tpr -maxwarn 3
+gmx genion -s ions.tpr -o trp_solv_ions.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15
+gmx grompp -f minim.mdp -c trp_solv_ions.gro -p topol.top -o em.tpr -maxwarn 3
+gmx mdrun -v -deffnm em
+gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr -maxwarn 3
+gmx mdrun -v -deffnm nvt
+gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr -maxwarn 3
+gmx mdrun -deffnm npt
+gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_1.tpr -maxwarn 3
+gmx mdrun -v -deffnm md_1
+
+
+gmx pdb2gmx -f beta_sheet.pdb -o betasheet_processed.gro -water spce -ignh
+gmx editconf -f betasheet_processed.gro -o betasheet_newbox.gro -c -d 1.0 -bt cubic
+gmx solvate -cp betasheet_newbox.gro -cs spc216.gro -o betasheet_solv.gro -p topol.top
+gmx grompp -f ions.mdp -c betasheet_solv.gro -p topol.top -o ions.tpr -maxwarn 3
+gmx genion -s ions.tpr -o betasheet_solv_ions.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15
+gmx grompp -f minim.mdp -c betasheet_solv_ions.gro -p topol.top -o em.tpr -maxwarn 3
+gmx mdrun -v -deffnm em
+gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr -maxwarn 3
+gmx mdrun -v -deffnm nvt
+gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr -maxwarn 3
+gmx mdrun -deffnm npt
+gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_1.tpr -maxwarn 3
+gmx mdrun -v -deffnm md_1
+
+
+gmx pdb2gmx -f helix.pdb -o alphahelix_processed.gro -water spce -ignh
+gmx editconf -f alphahelix_processed.gro -o alphahelix_newbox.gro -c -d 1.0 -bt cubic
+gmx solvate -cp alphahelix_newbox.gro -cs spc216.gro -o alphahelix_solv.gro -p topol.top
+gmx grompp -f ions.mdp -c alphahelix_solv.gro -p topol.top -o ions.tpr -maxwarn 3
+gmx genion -s ions.tpr -o alphahelix_solv_ions.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15
+gmx grompp -f minim.mdp -c alphahelix_solv_ions.gro -p topol.top -o em.tpr -maxwarn 3
+gmx mdrun -v -deffnm em
+gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr -maxwarn 3
+gmx mdrun -v -deffnm nvt
+gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr -maxwarn 3
+gmx mdrun -deffnm npt
+gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_1.tpr -maxwarn 3
+gmx mdrun -v -deffnm md_1
+
+gmx energy -f md_1.edr -o total_energy.xvg (13 & 0)
+gmx energy -f md_1.edr -o coul_sr.xvg (9 & 0)
+gmx energy -f md_1.edr -o lj-sr.xvg (7 & 0)
+
+gmx gyrate -f md_1.xtc -s md_1.tpr -o gyrate.xvg (select protein)
+
+gmx cluster -f md_1.xtc -s md_1.tpr -method gromos -cutoff 0.15 -g -cl (select 3 and 1)
+gmx cluster -f md_1.xtc -s md_1.tpr -method gromos -cutoff 0.1 -g -cl
+gmx cluster -f md_1.xtc -s md_1.tpr -method gromos -cutoff 0.30 -g -cl

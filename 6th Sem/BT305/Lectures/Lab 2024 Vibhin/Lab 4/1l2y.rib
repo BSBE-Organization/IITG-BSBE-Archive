@@ -1,0 +1,48 @@
+# sample command file. this builds the peptide as a helix 
+
+# except for the glycine which has a phi of 90.0 and psi of 0.0 
+
+TITLE RIBOSOME EXAMPLE 2 
+
+default helix 
+
+res asn phi 0.00 psi -32.09
+
+res leu phi -30.36 psi -18.36
+
+res tyr phi -57.88 psi -35.46
+
+res ile phi -61.36 psi -47.74 
+
+res gln phi -62.38 psi -42.26 
+
+res trp phi -62.34 psi -44.67
+
+res leu phi -62.54 psi -38.12
+
+res lys phi -55.94 psi -33.86
+
+res asp phi -72.86 psi -18.77 
+
+res gly phi 121.01 psi 10.36
+
+res gly phi 55.86 psi -126.17 
+
+res pro phi -56.72 psi -26.37  
+
+res ser phi -77.79 psi -0.31 
+
+res ser phi -95.29 psi -1.64   
+
+res gly phi 73.40 psi -3.51
+
+res arg phi -110.21 psi 136.08    
+
+res pro phi -68.15 psi 161.06
+
+res pro phi -69.38 psi 148.24
+
+res pro phi -79.52 psi 78.12
+
+res ser phi -86.33 psi 55.56
+

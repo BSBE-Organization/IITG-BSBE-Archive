@@ -1,0 +1,378 @@
+<title>RIBOSOME - PROGRAM TO BUILD COORDINATES FOR PEPTIDES FROM SEQUENCE</title>
+<h1>RIBOSOME V1.0</h1><p>
+<h2>RIBOSOME - PROGRAM TO BUILD COORDINATES FOR PEPTIDES FROM SEQUENCE</h2><p>
+<h3>Raj Srinivasan</h3>
+<h3>Johns Hopkins University Medical School</h3>
+<h3>Baltimore , MD 21205.</h3><p><p>
+<address>raj@grserv.med.jhmi.edu</address>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#chintro">Introduction</a>
+<li><a href="#chcomref">Command Reference</a>
+<li><a href="#chsetopt">Files & Things</a>
+<li><a href="#chexampl">Examples</a>
+</ol>
+<p><hr>
+<p>
+The information supplied in this document is believed to be true but
+no liability is assumed for its use or for the infringements of the
+rights of the others resulting from its use.
+<p>
+This package is distributed without any conditions. It may be
+lent, re-sold, hired out or otherwise circulated
+without the supplier's prior consent, in any form of packaging or cover.
+Any part of this manual or accompanying software may be reproduced,
+stored in a retrieval system on optical or magnetic disk, tape or any 
+other medium, or transmitted in any form or by any means, electronic,
+mechanical, photocopying, recording or otherwise for any purpose..
+<p><hr>
+<a name="chintro"><h2>Introduction</h2></a>
+<ol>
+     Ribosome is a program to construct coordinates for a peptide/
+protein from the sequence. The program is written in SGI Fortran and
+includes the common do , enddo extension and the getarg() unix function. 
+It should compile without any modification on most unix machines.
+<p>
+ To run the program type
+<ol>ribosome "filename.com" "output_filename" res.zmat</ol>
+</ol>
+<p><hr>
+<a name="chcomref"><h2>Command Reference</h2></a>
+<ol>
+All options to the program are passed through a command file. 
+Each command must be given on a separate line. Keywords are case 
+insensitive . All whitespace and tab characters are ignored.
+All blank lines and lines beginning with a "#" character are 
+ignored.
+</ol>
+<p>
+The commands/keywords currently recognised by RIBOSOME are given below.
+<ol>
+<p>    <a href="#Title">Title</a>
+<p>    <a href="#default">Default</a>
+<p>    <a href="#allh">AllH</a> 
+<p>    <a href="#residue">Residue</a> 
+</ol>
+<hr>
+<a name="Title"><h3>Title</h3></a><p>
+<p>
+Syntax:  title "string"
+<p>
+<ol>The RIBOSOME
+<b>title</b>
+command permits the input of a title for the molecule. The title may
+contain white spaces,tabs etc. Only the first 70 characters of the
+title, including spaces and tabs is printed.  This is an optional
+command.
+</ol>
+<p> example: <i>title my peptide sequence</i>
+<p> sets the title to "my peptide sequence"
+<hr>
+<a name="default"><h3>Default</h3></a><p>
+Syntax:  default "options"
+<ol>
+The RIBOSOME <b>default</b> command is used to specify the default
+conformation for the residues.  Valid options are:
+<ol><b> helix </b> to set the conformation to alpha-helix</ol>
+<ol><b> sheet </b> to set the conformation to beta-sheet</ol>
+<ol><b> extended </b> to set the conformation to the extended form</ol>
+<ol><b> "angref" value </b></ol>
+where <i>angref</i> is one of phi,psi,omega,chi1,chi2,chi3,chi4,chi5 and
+<i>value</i> is the dihedral angle value.
+<p>examples:
+<ol><b>default helix</b></ol>
+<ol><b>default phi -90 psi -45</b></ol>
+</ol>
+<hr>
+<a name="allh"><h3>AllH</h3></a><p>
+Syntax:  allh
+<ol>
+<p>The RIBOSOME  <b>allh</b>
+command is used to specify that all hydrogens (polar & non-polar)
+should be written. By default, only hydrogens on hetroatoms are
+written.
+</ol>
+<p><hr>
+<a name="residue"><h3>Residue</h3></a><p>
+Syntax:  residue [option] 
+<p>The RIBOSOME  <b>residue</b>
+<ol>
+command is used to specify the sequence. Each residue should be on a 
+separate line. This command can also be used to specify the conformation
+of the residue.  For e.g.  the command
+<ol> <i>residue phe phi -60 psi 120 chi1 -60 chi2 90</i></ol>
+specifies the residue as phenyl alanine, and sets the phi, psi,
+ chi1 and chi2 values to those indicated.
+</ol>
+<p><hr>
+<a name="chsetopt"><h2>Files & Things</h2></a>
+<ol>
+RIBOSOME uses a file calles <b>res.zmat</b> ( or any other name that you
+prefer ) to read in residue decsriptions.  The file contains a
+z-matrix dexcription for each residue. The file is free-format
+and can be edited as desired. Additional residue descriptions
+may be added to the file.
+<p> The first line for each residue contains the name and 
+number of atoms in the residue. Thus
+<ol> name ala numatm 6 </ol>
+specifies the residue name as ala with 6 atoms in the residue.
+The residue name may be no longer than 4 characters.  The program
+is currently dimensioned for a maximum of 50 residue types, with
+a maximum of 100 atoms per residue type.
+<p> Following the residue name line, there should be a line for
+each atom describing it's name, it's zmatrix parameters and indicators
+as to whether it is a default atom, and a pointer to any torsional
+angle that it may point to.  The default decsriptor is either a '+' or
+a '-' symbol, and is used to determine whether the coordinates for the
+atom are written to the output file. The file supplied has all hydrogens
+connected to carbons flagged with a '-' symbol.  Thus, by default 
+coordinates for these hydrogens are not written. Each line should begin with
+the atom name which should be four characters or less in length.
+<p>
+The z-matrix decsription of an atom, specifies it's positon in
+internal coordinates with respect to three other atoms, usuall called parent,
+grand-parent and great grandparent.  Consider the following description:
+<ol>o       1.231  120.800  139.000      3    2    1</ol>
+This line describes the atom with name "o" and specifies the distance between
+this atom and atom number 3 ( column 5) as 1.231 angstroms( column 2),
+the angle between this atom, atom number 3 and atom number 2 (column 6) as
+120.8 degrees (column 3) and the dihedral between the atoms "o" , 3, 2 and 1
+(column 7) as 139.0 degrees (column 4). A negative value in any of the columns 
+5, 6, or 7 specifies an atom from a previous residue.
+</ol>
+<hr>
+<a name="chexampl"><h2>EXAMPLES</h2></a>
+<p>
+<b>Example # 1</b>
+<p># sample command file. this builds the peptide as a helix
+<p>title RIBOSOME EXAMPLE NUMBER 1
+<p>default helix
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly
+<p>res gln
+<p>res glu
+<p>res his
+<p>res ile
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe
+<p>res pro
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<p>
+<hr>
+<b>Example # 2</b>
+<p># sample command file. this builds the peptide as a helix
+<p># except for the glycine which has a phi of 90.0 and psi of 0.0
+<p>RIBOSOME EXAMPLE 2
+<p>default helix
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly phi 90 psi 0
+<p>res gln
+<p>res glu
+<p>res his
+<p>res ile
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe
+<p>res pro
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<hr>
+<b>EXAMPLE #3</b>
+<p># sample command file. this builds the peptide as a helix
+<p># with the chi1 of all residues set to -60
+<p>title RIBOSOME EXAMPLE 3
+<p>default helix
+<p>res ace
+<p>res ala
+<p>res arg chi -60
+<p>res asn chi -60
+<p>res asp chi -60
+<p>res cys chi -60
+<p>res gly
+<p>res gln chi -60
+<p>res glu chi -60
+<p>res his chi -60
+<p>res ile chi -60
+<p>res leu chi -60
+<p>res lys chi -60
+<p>res met chi -60
+<p>res phe chi -60
+<p>res pro
+<p>res ser chi -60
+<p>res thr chi -60
+<p>res trp chi -60
+<p>res tyr chi -60
+<p>res val chi -60
+<p>res nme
+<hr>
+<b>EXAMPLE #4</b>
+<p># sample command file. this builds the peptide as a helix with
+<p># phe set to have a phi of -60 and psi of 130 and the phe-pro
+<p># peptide bond is also set to be cis
+<p>title RIBOSOME EXAMPLE 4
+<p>default helix
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly
+<p>res gln
+<p>res glu
+<p>res his
+<p>res ile
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe phi -60 psi 130
+<p>res pro omega 0
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<hr>
+<b>EXAMPLE #5</b>
+<p># sample command file. this builds the peptide as a sheet
+<p>#except for proline which has a phi of -70
+<p>title RIBOSOME EXAMPLE 5
+<p>default sheet
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly
+<p>res gln
+<p>res glu
+<p>res his
+<p>res ile
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe
+<p>res pro phi -70
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<hr>
+<b>EXAMPLE #6</b>
+<p># sample command file. this builds the peptide in a 
+<p>#extended conformation
+<p>title RIBOSOME EXAMPLE 6
+<p>default extended
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly
+<p>res gln
+<p>res glu
+<p>res his
+<p>res ile
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe
+<p>res pro phi -70
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<hr>
+<b>EXAMPLE #7</b>
+<p># sample command file. this builds the peptide in a 
+<p># left handed helix conformation except for proline
+<p>title RIBOSOME EXAMPLE 7
+<p>default phi 60 psi 40
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly
+<p>res gln
+<p>res glu
+<p>res his
+<p>res ile
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe
+<p>res pro phi -70 psi 120
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<hr>
+<b>EXAMPLE #8</b>
+<p># sample command file. this builds the peptide in a 
+<p># extended conformation with chi1 values set to -60.0
+<p># and a type II beta turn between his and ile
+<p>title RIBOSOME EXAMPLE 8
+<p>default extended
+<p>default chi1 -60
+<p>res ace
+<p>res ala
+<p>res arg
+<p>res asn
+<p>res asp
+<p>res cys
+<p>res gly
+<p>res gln
+<p>res glu
+<p>res his phi -60 psi 120
+<p>res ile phi 80 psi 0
+<p>res leu
+<p>res lys
+<p>res met
+<p>res phe
+<p>res pro
+<p>res ser
+<p>res thr
+<p>res trp
+<p>res tyr
+<p>res val
+<p>res nme
+<hr>
+
+
+
+
+
+

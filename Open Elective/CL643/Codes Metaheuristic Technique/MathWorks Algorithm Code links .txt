@@ -1,8 +1,0 @@
-TLBO: https://in.mathworks.com/matlabcentral/fileexchange/74091-teaching-learning-based-optimization
-
-DE: https://in.mathworks.com/matlabcentral/fileexchange/74129-differential-evolution
-
-GA: https://in.mathworks.com/matlabcentral/fileexchange/74132-genetic-algorithm
-
-ABC: https://in.mathworks.com/matlabcentral/fileexchange/74122-artificial-bee-colony-optimization
-

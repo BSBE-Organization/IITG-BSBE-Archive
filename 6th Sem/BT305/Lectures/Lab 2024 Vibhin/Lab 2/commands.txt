@@ -1,0 +1,35 @@
+3)
+awk '/^ATOM/ && ($3=="CA") {print $0}' file1.pdb > file2.pdb
+awk '/^ATOM/ && ($3=="N") {print $0}' file1.pdb > file3.pdb
+awk '/^ATOM/ && ($3=="CB") {print $0}' file1.pdb > file4.pdb
+
+4) awk '{gsub(/ATOM/, "Aditya"); print}' file1.pdb > file5.pdb
+
+A)
+awk '{gsub(/ATOM/, "Vansh"); print}' file1.pdb > vansh.pdb
+awk '{gsub(/ATOM/, "Atharva"); print}' file1.pdb > atharva.pdb
+awk '{gsub(/ATOM/, "Nikhil"); print}' file1.pdb > nikhil.pdb
+
+B) cat vansh.pdb atharva.pdb nikhil.pdb > file6.pdb
+
+5) awk '/^ATOM/ && ($3=="CG") {print $0}' file1.pdb > file7.pdb
+
+A) awk '/^ATOM/ && ($4=="ILE" || $4=="TYR" || $4=="PHE" || $4=="TRP" || $4=="LEU") {print $0}' file1.pdb > file8.pdb
+
+B) awk '/^ATOM/ && ($3=="CA") && ($4=="ASP" || $4=="GLU") {print $0}' file1.pdb > file9.pdb
+
+C) awk '/^ATOM/ && ($3=="CA") && ($4=="LYS" || $4=="HIS" || $4=="ARG") {print $0}' file1.pdb > file10.pdb
+
+6)
+A) awk '/^ATOM/ && ($3=="CA") {count++} END {print count}' 4dfr.pdb
+
+B) awk '/^ATOM/ && ($3=="CA") && ($4=="ALA") {count++} END {print count}' 4dfr.pdb
+
+C) awk '/^ATOM/ && ($3=="CA") && ($4=="TRP") {count++} END {print count}' 4dfr.pdb
+
+D) awk '/^ATOM/ && ($3=="CA") && ($4=="ASN" || $4=="GLY" || $4=="SER" || $4=="THR" || $4=="CYS" || $4=="GLN" || $4=="TYR") {count++} END {print count}' 4dfr.pdb
+
+7)
+awk '/^ATOM/ {sum_X+=$7} END {print sum_X}' file1.pdb
+awk '/^ATOM/ {sum_Y+=$8} END {print sum_Y}' file1.pdb
+awk '/^ATOM/ {sum_Z+=$9} END {print sum_Z}' file1.pdb
