@@ -17,7 +17,7 @@ BestFitIter(1) = min(f);
 %% Iteration loop
 for t = 1: T
     
-    for i = 1:2*Np
+    for i = 1:Np  % CHANGED
         %% Teacher Phase
         Xmean = mean(P);            % Determining mean of the population
         
@@ -55,7 +55,7 @@ for t = 1: T
         end
         
         Xnew = min(ub, Xnew);       % Bounding the violating variables to their upper bound
-        Xnew = min(lb, Xnew);       % Bounding the violating variables to their lower bound
+        Xnew = max(lb, Xnew);       % Bounding the violating variables to their lower bound CHANGED
         
         fnew = prob(Xnew);          % Evaluating the fitness of the newly generated solution
         
@@ -71,3 +71,4 @@ end
 
 [bestfitness,ind] = min(f);
 bestsol = P(ind,:);
+end

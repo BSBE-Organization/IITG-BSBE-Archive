@@ -1,5 +1,5 @@
-function [bestsol,bestfitness] = DifferentialEvolution(prob,lb,ub,Np,T,Pc,F)
-
+function [bestsol,bestfitness,BestFitIter] = DifferentialEvolution(prob,lb,ub,Np,T,Pc,F)
+BestFitIter = NaN(T+1,1);
 %% Starting of DE
 f = NaN(Np,1);                     % Vector to store the fitness function value of the population members
 
@@ -58,7 +58,7 @@ for t = 1: T
             f(j) = fu(j);                       % Include the fitness function value of the new solution in population
         end
     end
-    
+    BestFitIter(t) = min(f);
     
 end
 

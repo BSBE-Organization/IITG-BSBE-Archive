@@ -1,6 +1,6 @@
 function [Xbest,Fbest,BestFitIter] = PSOfunc(FITNESSFUN,Npop,lb,ub,Maxiter,w,c1,c2)
 
-BestFitIter = zeros(Maxiter,1);
+BestFitIter = [];
 %Determine the number of variables
 D = length(lb);
 
@@ -13,6 +13,7 @@ v = repmat(lb,Npop,1) + repmat((ub-lb),Npop,1).*rand(Npop,D);
 %Evaluate the fitness value for each population member
 for i = 1:Npop
     obj(i) = FITNESSFUN(pop(i,:));
+    BestFitIter(end+1) = obj(i);
 end
 
 %Initialize the personal best solutions
@@ -39,7 +40,7 @@ for j = 1:Maxiter
         % bound the new solution
         pop(i,:) = max(pop(i,:),lb);
         pop(i,:) = min(pop(i,:),ub);
-        
+
         % Determine the fitness of the new population member
         obj(i) = FITNESSFUN(pop(i,:));
         
@@ -54,8 +55,8 @@ for j = 1:Maxiter
                 gbestPop = pbest(i,:);
             end
         end
+    BestFitIter(end+1) = gbest_obj;
     end
-    BestFitIter(j) = gbest_obj;
 end
 
 Fbest = gbest_obj;

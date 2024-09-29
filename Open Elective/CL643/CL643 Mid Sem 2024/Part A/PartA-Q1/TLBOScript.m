@@ -10,10 +10,15 @@ ub = h';
 prob = @SKS_ProductionPlanning;     % Fitness function
 
 %% Algorithm parameters
-Np = 100;                            % Population Size
+Np = 101;                            % Population Size
 T = 100;                             % No. of iterations
 
-[bestsol,bestfitness,BestFitIter,~,~] = TLBO(prob,lb,ub,Np,T);
+bestf = zeros(25,1);
+for i=1:25
+    [bestsol,bestf(i)] = TLBO(prob,lb,ub,Np,T);
+end
 
-
-
+for i = 2:25
+    bestf(i) = min(bestf(i-1),bestf(i));
+end
+disp(bestf)

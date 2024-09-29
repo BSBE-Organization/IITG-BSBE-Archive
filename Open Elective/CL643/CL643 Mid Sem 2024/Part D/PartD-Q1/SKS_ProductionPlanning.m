@@ -64,3 +64,4 @@ end
 profit = sum(Revenue) - sum(PC);                 % Determining the profit (objective) CHANGED
 
 f = -profit + 10^15*(penalty_IC + penalty_R1 + penalty_R2 + sum(penalty_domain));   % Determining the fitness function value
+end    % CHANGED
