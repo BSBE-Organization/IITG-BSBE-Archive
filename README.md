@@ -17,6 +17,7 @@ Feel free to contribute to this repository by adding more study materials or imp
 ## Contributors
 * Aditya Jindal [210106004]
 * Sumit Kumar   [210106076]
+* Adhikansh Goel [220106005]
 * Waiting for New Contributors....😎
 
 Happy studying!
