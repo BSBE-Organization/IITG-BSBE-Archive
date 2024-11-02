@@ -1,5 +1,5 @@
-function [bestsol,bestfitness,BestFitIter] = DifferentialEvolution(prob,lb,ub,Np,T,Pc,F)
-BestFitIter = NaN(T+1,1);
+function [bestsol,bestfitness,BestFitIter,P,f] = DEwithoutC(prob,lb,ub,Np,T,Pc,F)
+
 %% Starting of DE
 f = NaN(Np,1);                     % Vector to store the fitness function value of the population members
 
@@ -9,10 +9,13 @@ D = length(lb);                    % Determining the number of decision variable
 
 U = NaN(Np,D);                     % Matrix to store the trial solutions
 
+BestFitIter = [];           % Vector to store the best fitness function value in every iteration
+
 P = repmat(lb,Np,1) + repmat((ub-lb),Np,1).*rand(Np,D);   % Generation of the initial population
 
 for p = 1:Np
     f(p) = prob(P(p,:));           % Evaluating the fitness function of the initial population
+    BestFitIter(end+1) = f(p);
 end
 
 %% Iteration loop
@@ -52,13 +55,12 @@ for t = 1: T
         U(j,:) = max(lb,U(j,:));                % Bounding the violating variables to their lower bound
         
         fu(j) = prob(U(j,:));                   % Evaluating the fitness of the trial solution
-        
+        BestFitIter(end+1) = fu(j);
         if fu(j) < f(j)                         % Greedy selection
             P(j,:) = U(j,:);                    % Include the new solution in population
             f(j) = fu(j);                       % Include the fitness function value of the new solution in population
         end
     end
-    BestFitIter(t) = min(f);
     
 end
 

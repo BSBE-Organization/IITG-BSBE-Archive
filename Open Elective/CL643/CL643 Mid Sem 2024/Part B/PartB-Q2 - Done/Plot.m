@@ -113,4 +113,9 @@ for i = 2:100
     end
 end
 
-disp(B)
+M = zeros(100,1);
+for i = 1:100
+    M(i) = mean(A(i,:));
+end
+
+plot(M);

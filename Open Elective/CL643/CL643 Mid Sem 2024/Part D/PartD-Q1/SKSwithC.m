@@ -1,8 +1,10 @@
-function f = SKS_ProductionPlanning(x)
+function [f,xupdate] = SKSwithC(x)
+xupdate = x;
+% % Reference: https://link.springer.com/chapter/10.1007/978-3-030-26458-1_13
 
 [product,l,m,h,il,im,ih,cl,cm,ch,SalePrice,rm1,rm2,rm3] = ProductionPlanningData; % Accessing the data from the function
 
-nProcess = length(l);                             % determing the number of processes CHANGED
+nProcess = length(l);                        % determing the number of processes
 
 Budget = 1000;                              % Budget available
 AvailRaw1 = 500;                            % Amount of raw material 1 available
@@ -35,9 +37,10 @@ for j = 1: nProcess
         Revenue(j) = SalePrice(j)*x(j);          % Determining the revenue genereated by selling the product from the process j
         
         
-    elseif 0 < x(j) &&  x(j) < l(j)              % if the production is greater than zero but less than the low level
+    elseif 0 < x(j) &&  x(j)< l(j)              % if the production is greater than zero but less than the low level
         
         penalty_domain(j) = 0;               % Assigning penalty for violating the domain hole constraints
+        xupdate(j) = 0;
 
     end
     
@@ -57,11 +60,10 @@ end
 
 penalty_R2 = 0;
 TotalR2Reqd = sum(R2Reqd);
-if TotalR2Reqd > AvailRaw2                       % Checking for violation of the raw material 2 constraint CHANGED
+if TotalR2Reqd > AvailRaw2                       % Checking for violation of the raw material 2 constraint
     penalty_R2 = (TotalR2Reqd  - AvailRaw2)^2;   % Determining the penalty due to violation for raw material 2
 end
 
-profit = sum(Revenue) - sum(PC);                 % Determining the profit (objective) CHANGED
+profit = sum(Revenue) - sum(PC);                 % Determining the profit (objective)
 
 f = -profit + 10^15*(penalty_IC + penalty_R1 + penalty_R2 + sum(penalty_domain));   % Determining the fitness function value
-end    % CHANGED
