@@ -1,0 +1,740 @@
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/22/24 16:30:51 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Set
+   2      i / 1*7 /
+   3      m / 1*3 /;
+   4   
+   5  Alias
+   6      (i,j)
+   7      (m,n);
+   8   
+   9  Parameters p(i,m) /
+  10      1.1 10
+  11      1.2 14
+  12      1.3 12
+  13      2.1 6
+  14      2.2 8
+  15      2.3 7
+  16      3.1 11
+  17      3.2 16
+  18      3.3 13
+  19      4.1 6
+  20      4.2 12
+  21      4.3 8
+  22      5.1 10
+  23      5.2 16
+  24      5.3 12
+  25      6.1 7
+  26      6.2 12
+  27      6.3 10
+  28      7.1 10
+  29      7.2 8
+  30      7.3 10 /;
+  31   
+  32  Parameters c(i,m) /
+  33      1.1 10
+  34      1.2 6
+  35      1.3 8
+  36      2.1 8
+  37      2.2 5
+  38      2.3 6
+  39      3.1 12
+  40      3.2 7
+  41      3.3 10
+  42      4.1 10
+  43      4.2 6
+  44      4.3 8
+  45      5.1 8
+  46      5.2 5
+  47      5.3 7
+  48      6.1 12
+  49      6.2 7
+  50      6.3 10
+  51      7.1 12
+  52      7.2 7
+  53      7.3 10 /;
+  54   
+  55  Parameters r(i)/
+  56      1 2
+  57      2 3
+  58      3 4
+  59      4 5
+  60      5 10
+  61      6 1
+  62      7 2 /;
+  63   
+  64  Parameters d(i)/
+  65      1 16
+  66      2 13
+  67      3 21
+  68      4 28
+  69      5 24
+  70      6 28
+  71      7 23 /;
+  72   
+  73  Scalars
+  74      U / 100 /
+  75      min
+  76      max;
+  77   
+  78  max = smax(i,d(i));
+  79  min = smin(i,r(i));
+  80   
+  81  Binary Variables
+  82      x(i,m)
+  83      y(i,j);
+  84   
+  85  Free Variables
+  86      t(i)
+  87      obj;
+  88   
+  89  Equations
+  90      eq1
+  91      eq2
+  92      eq3
+  93      eq4
+  94      eq5
+  95      eq6
+  96      eq7
+  97      eq8
+  98      objeq;
+  99   
+ 100  eq1(i).. t(i) =g= r(i);
+ 101   
+ 102  eq2(i).. t(i) =l= d(i) - sum(m, p(i,m)*x(i,m));
+ 103   
+ 104  eq3(i).. sum(m, x(i,m)) =e= 1;
+ 105   
+ 106  eq4(m).. sum(i, p(i,m)*x(i,m)) =l= max - min;
+ 107   
+ 108  eq5(i,j)$(ord(i) < ord(j)).. y(i,j) + y(j,i) =l= 1;
+ 109   
+ 110  eq6(i,j,m)$(ord(i) < ord(j)).. y(i,j) + y(j,i) =g= x(i,m) + x(j,m) - 1;
+ 111   
+ 112  eq7(i,j,m,n)$(ord(i) < ord(j) and ord(n) <> ord(n)).. y(i,j) + y(j,i) + x(i,m) + x(j,n) =l= 2;
+ 113   
+ 114  eq8(i,j)$(ord(i) <> ord(j)).. t(j) =g= t(i) + sum(m, p(i,m)*x(i,m)) - U*(1 - y(i,j));
+ 115   
+ 116  objeq.. obj =e= sum((i,m), c(i,m)*x(i,m));
+ 117   
+ 118  Model JSSP / all /;
+ 119  Solve JSSP using mip minimizing obj;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/22/24 16:30:51 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE JSSP Using MIP From line 119
+
+
+---- eq1  =G=  
+
+eq1(1)..  t(1) =G= 2 ; (LHS = 0, INFES = 2 ****)
+     
+eq1(2)..  t(2) =G= 3 ; (LHS = 0, INFES = 3 ****)
+     
+eq1(3)..  t(3) =G= 4 ; (LHS = 0, INFES = 4 ****)
+     
+REMAINING 4 ENTRIES SKIPPED
+
+
+---- eq2  =L=  
+
+eq2(1)..  10*x(1,1) + 14*x(1,2) + 12*x(1,3) + t(1) =L= 16 ; (LHS = 0)
+     
+eq2(2)..  6*x(2,1) + 8*x(2,2) + 7*x(2,3) + t(2) =L= 13 ; (LHS = 0)
+     
+eq2(3)..  11*x(3,1) + 16*x(3,2) + 13*x(3,3) + t(3) =L= 21 ; (LHS = 0)
+     
+REMAINING 4 ENTRIES SKIPPED
+
+
+---- eq3  =E=  
+
+eq3(1)..  x(1,1) + x(1,2) + x(1,3) =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+eq3(2)..  x(2,1) + x(2,2) + x(2,3) =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+eq3(3)..  x(3,1) + x(3,2) + x(3,3) =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+REMAINING 4 ENTRIES SKIPPED
+
+
+---- eq4  =L=  
+
+eq4(1)..  10*x(1,1) + 6*x(2,1) + 11*x(3,1) + 6*x(4,1) + 10*x(5,1) + 7*x(6,1) + 10*x(7,1) =L= 27 ; (LHS = 0)
+     
+eq4(2)..  14*x(1,2) + 8*x(2,2) + 16*x(3,2) + 12*x(4,2) + 16*x(5,2) + 12*x(6,2) + 8*x(7,2) =L= 27 ; (LHS = 0)
+     
+eq4(3)..  12*x(1,3) + 7*x(2,3) + 13*x(3,3) + 8*x(4,3) + 12*x(5,3) + 10*x(6,3) + 10*x(7,3) =L= 27 ; (LHS = 0)
+     
+
+---- eq5  =L=  
+
+eq5(1,2)..  y(1,2) + y(2,1) =L= 1 ; (LHS = 0)
+     
+eq5(1,3)..  y(1,3) + y(3,1) =L= 1 ; (LHS = 0)
+     
+eq5(1,4)..  y(1,4) + y(4,1) =L= 1 ; (LHS = 0)
+     
+REMAINING 18 ENTRIES SKIPPED
+
+
+---- eq6  =G=  
+
+eq6(1,2,1)..  - x(1,1) - x(2,1) + y(1,2) + y(2,1) =G= -1 ; (LHS = 0)
+     
+eq6(1,2,2)..  - x(1,2) - x(2,2) + y(1,2) + y(2,1) =G= -1 ; (LHS = 0)
+     
+eq6(1,2,3)..  - x(1,3) - x(2,3) + y(1,2) + y(2,1) =G= -1 ; (LHS = 0)
+     
+REMAINING 60 ENTRIES SKIPPED
+
+
+---- eq7  =L=  
+
+                NONE
+
+
+---- eq8  =G=  
+
+eq8(1,2)..  - 10*x(1,1) - 14*x(1,2) - 12*x(1,3) - 100*y(1,2) - t(1) + t(2) =G= -100 ; (LHS = 0)
+     
+eq8(1,3)..  - 10*x(1,1) - 14*x(1,2) - 12*x(1,3) - 100*y(1,3) - t(1) + t(3) =G= -100 ; (LHS = 0)
+     
+eq8(1,4)..  - 10*x(1,1) - 14*x(1,2) - 12*x(1,3) - 100*y(1,4) - t(1) + t(4) =G= -100 ; (LHS = 0)
+     
+REMAINING 39 ENTRIES SKIPPED
+
+
+---- objeq  =E=  
+
+objeq..  - 10*x(1,1) - 6*x(1,2) - 8*x(1,3) - 8*x(2,1) - 5*x(2,2) - 6*x(2,3) - 12*x(3,1) - 7*x(3,2) - 10*x(3,3) - 10*x(4,1) - 6*x(4,2) - 8*x(4,3) - 8*x(5,1) - 5*x(5,2) - 7*x(5,3) - 12*x(6,1) - 7*x(6,2) - 10*x(6,3) - 12*x(7,1) - 7*x(7,2) - 10*x(7,3) + obj =E= 0 ; (LHS = 0)
+     
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/22/24 16:30:51 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE JSSP Using MIP From line 119
+
+
+---- x  
+
+x(1,1)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+       10       eq2(1)
+        1       eq3(1)
+       10       eq4(1)
+       -1       eq6(1,2,1)
+       -1       eq6(1,3,1)
+       -1       eq6(1,4,1)
+       -1       eq6(1,5,1)
+       -1       eq6(1,6,1)
+       -1       eq6(1,7,1)
+      -10       eq8(1,2)
+      -10       eq8(1,3)
+      -10       eq8(1,4)
+      -10       eq8(1,5)
+      -10       eq8(1,6)
+      -10       eq8(1,7)
+      -10       objeq
+
+x(1,2)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+       14       eq2(1)
+        1       eq3(1)
+       14       eq4(2)
+       -1       eq6(1,2,2)
+       -1       eq6(1,3,2)
+       -1       eq6(1,4,2)
+       -1       eq6(1,5,2)
+       -1       eq6(1,6,2)
+       -1       eq6(1,7,2)
+      -14       eq8(1,2)
+      -14       eq8(1,3)
+      -14       eq8(1,4)
+      -14       eq8(1,5)
+      -14       eq8(1,6)
+      -14       eq8(1,7)
+       -6       objeq
+
+x(1,3)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+       12       eq2(1)
+        1       eq3(1)
+       12       eq4(3)
+       -1       eq6(1,2,3)
+       -1       eq6(1,3,3)
+       -1       eq6(1,4,3)
+       -1       eq6(1,5,3)
+       -1       eq6(1,6,3)
+       -1       eq6(1,7,3)
+      -12       eq8(1,2)
+      -12       eq8(1,3)
+      -12       eq8(1,4)
+      -12       eq8(1,5)
+      -12       eq8(1,6)
+      -12       eq8(1,7)
+       -8       objeq
+
+REMAINING 18 ENTRIES SKIPPED
+
+---- y  
+
+y(1,2)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       eq5(1,2)
+        1       eq6(1,2,1)
+        1       eq6(1,2,2)
+        1       eq6(1,2,3)
+     -100       eq8(1,2)
+
+y(1,3)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       eq5(1,3)
+        1       eq6(1,3,1)
+        1       eq6(1,3,2)
+        1       eq6(1,3,3)
+     -100       eq8(1,3)
+
+y(1,4)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       eq5(1,4)
+        1       eq6(1,4,1)
+        1       eq6(1,4,2)
+        1       eq6(1,4,3)
+     -100       eq8(1,4)
+
+REMAINING 39 ENTRIES SKIPPED
+
+---- t  
+
+t(1)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq1(1)
+        1       eq2(1)
+       -1       eq8(1,2)
+       -1       eq8(1,3)
+       -1       eq8(1,4)
+       -1       eq8(1,5)
+       -1       eq8(1,6)
+       -1       eq8(1,7)
+        1       eq8(2,1)
+        1       eq8(3,1)
+        1       eq8(4,1)
+        1       eq8(5,1)
+        1       eq8(6,1)
+        1       eq8(7,1)
+
+t(2)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq1(2)
+        1       eq2(2)
+        1       eq8(1,2)
+       -1       eq8(2,1)
+       -1       eq8(2,3)
+       -1       eq8(2,4)
+       -1       eq8(2,5)
+       -1       eq8(2,6)
+       -1       eq8(2,7)
+        1       eq8(3,2)
+        1       eq8(4,2)
+        1       eq8(5,2)
+        1       eq8(6,2)
+        1       eq8(7,2)
+
+t(3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq1(3)
+        1       eq2(3)
+        1       eq8(1,3)
+        1       eq8(2,3)
+       -1       eq8(3,1)
+       -1       eq8(3,2)
+       -1       eq8(3,4)
+       -1       eq8(3,5)
+       -1       eq8(3,6)
+       -1       eq8(3,7)
+        1       eq8(4,3)
+        1       eq8(5,3)
+        1       eq8(6,3)
+        1       eq8(7,3)
+
+REMAINING 4 ENTRIES SKIPPED
+
+---- obj  
+
+obj
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       objeq
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/22/24 16:30:51 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE JSSP Using MIP From line 119
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.000E+00, 1.000E+02] - Zero values observed as well
+Bound     [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 1.000E+02]
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/22/24 16:30:51 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE JSSP Using MIP From line 119
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           9     SINGLE EQUATIONS          151
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES           71
+NON ZERO ELEMENTS           645     DISCRETE VARIABLES         63
+
+
+GENERATION TIME      =        0.016 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/22/24 16:30:51 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE JSSP Using MIP From line 119
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   JSSP                OBJECTIVE  obj
+     TYPE    MIP                 DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  119
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE               60.0000
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT        80    2147483647
+*** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.53 Mb (peak 0.53 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.02 Mb)
+--- Starting Cplex
+
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.02sec (det. 6.31 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.12 ticks)
+
+
+Proven optimal solution
+MIP Solution:           60.000000    (80 iterations, 0 nodes)
+Final Solve:            60.000000    (0 iterations)
+
+Best possible:          60.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+
+---- EQU eq1  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1         2.0000         2.0000        +INF            EPS         
+2         3.0000         3.0000        +INF            EPS         
+3         4.0000         9.0000        +INF             .          
+4         5.0000        22.0000        +INF             .          
+5        10.0000        12.0000        +INF             .          
+6         1.0000        16.0000        +INF             .          
+7         2.0000         2.0000        +INF            EPS         
+
+---- EQU eq2  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1        -INF           16.0000        16.0000          .          
+2        -INF            9.0000        13.0000          .          
+3        -INF           20.0000        21.0000          .          
+4        -INF           28.0000        28.0000         EPS         
+5        -INF           24.0000        24.0000         EPS         
+6        -INF           28.0000        28.0000          .          
+7        -INF           12.0000        23.0000          .          
+
+---- EQU eq3  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1         1.0000         1.0000         1.0000          .          
+2         1.0000         1.0000         1.0000          .          
+3         1.0000         1.0000         1.0000          .          
+4         1.0000         1.0000         1.0000          .          
+5         1.0000         1.0000         1.0000          .          
+6         1.0000         1.0000         1.0000          .          
+7         1.0000         1.0000         1.0000          .          
+
+---- EQU eq4  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1        -INF           23.0000        27.0000          .          
+2        -INF           26.0000        27.0000          .          
+3        -INF           22.0000        27.0000          .          
+
+---- EQU eq5  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.2        -INF             .             1.0000          .          
+1.3        -INF             .             1.0000          .          
+1.4        -INF             .             1.0000          .          
+1.5        -INF             .             1.0000          .          
+1.6        -INF            1.0000         1.0000          .          
+1.7        -INF             .             1.0000          .          
+2.3        -INF            1.0000         1.0000          .          
+2.4        -INF            1.0000         1.0000          .          
+2.5        -INF            1.0000         1.0000          .          
+2.6        -INF             .             1.0000          .          
+2.7        -INF             .             1.0000          .          
+3.4        -INF            1.0000         1.0000          .          
+3.5        -INF             .             1.0000          .          
+3.6        -INF             .             1.0000          .          
+3.7        -INF             .             1.0000          .          
+4.5        -INF             .             1.0000          .          
+4.6        -INF             .             1.0000          .          
+4.7        -INF             .             1.0000          .          
+5.6        -INF             .             1.0000          .          
+5.7        -INF            1.0000         1.0000          .          
+6.7        -INF             .             1.0000          .          
+
+---- EQU eq6  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+1.2.1        -1.0000        -1.0000        +INF             .          
+1.2.2        -1.0000        -1.0000        +INF             .          
+1.2.3        -1.0000          .            +INF             .          
+1.3.1        -1.0000        -1.0000        +INF             .          
+1.3.2        -1.0000        -1.0000        +INF             .          
+1.3.3        -1.0000          .            +INF             .          
+1.4.1        -1.0000        -1.0000        +INF             .          
+1.4.2        -1.0000        -1.0000        +INF             .          
+1.4.3        -1.0000          .            +INF             .          
+1.5.1        -1.0000          .            +INF             .          
+1.5.2        -1.0000        -1.0000        +INF             .          
+1.5.3        -1.0000        -1.0000        +INF             .          
+1.6.1        -1.0000         1.0000        +INF             .          
+1.6.2        -1.0000        -1.0000        +INF             .          
+1.6.3        -1.0000         1.0000        +INF             .          
+1.7.1        -1.0000          .            +INF             .          
+1.7.2        -1.0000        -1.0000        +INF             .          
+1.7.3        -1.0000        -1.0000        +INF             .          
+2.3.1        -1.0000        -1.0000        +INF             .          
+2.3.2        -1.0000         1.0000        +INF             .          
+2.3.3        -1.0000         1.0000        +INF             .          
+2.4.1        -1.0000        -1.0000        +INF             .          
+2.4.2        -1.0000         1.0000        +INF             .          
+2.4.3        -1.0000         1.0000        +INF             .          
+2.5.1        -1.0000          .            +INF             .          
+2.5.2        -1.0000         1.0000        +INF             .          
+2.5.3        -1.0000          .            +INF             .          
+2.6.1        -1.0000        -1.0000        +INF             .          
+2.6.2        -1.0000        -1.0000        +INF             .          
+2.6.3        -1.0000          .            +INF             .          
+2.7.1        -1.0000        -1.0000        +INF             .          
+2.7.2        -1.0000          .            +INF             .          
+2.7.3        -1.0000        -1.0000        +INF             .          
+3.4.1        -1.0000        -1.0000        +INF             .          
+3.4.2        -1.0000         1.0000        +INF             .          
+3.4.3        -1.0000         1.0000        +INF             .          
+3.5.1        -1.0000        -1.0000        +INF             .          
+3.5.2        -1.0000          .            +INF             .          
+3.5.3        -1.0000        -1.0000        +INF             .          
+3.6.1        -1.0000        -1.0000        +INF             .          
+3.6.2        -1.0000        -1.0000        +INF             .          
+3.6.3        -1.0000          .            +INF             .          
+3.7.1        -1.0000        -1.0000        +INF             .          
+3.7.2        -1.0000          .            +INF             .          
+3.7.3        -1.0000        -1.0000        +INF             .          
+4.5.1        -1.0000        -1.0000        +INF             .          
+4.5.2        -1.0000          .            +INF             .          
+4.5.3        -1.0000        -1.0000        +INF             .          
+4.6.1        -1.0000        -1.0000        +INF             .          
+4.6.2        -1.0000        -1.0000        +INF             .          
+4.6.3        -1.0000          .            +INF             .          
+4.7.1        -1.0000        -1.0000        +INF             .          
+4.7.2        -1.0000          .            +INF             .          
+4.7.3        -1.0000        -1.0000        +INF             .          
+5.6.1        -1.0000          .            +INF             .          
+5.6.2        -1.0000        -1.0000        +INF             .          
+5.6.3        -1.0000        -1.0000        +INF             .          
+5.7.1        -1.0000         1.0000        +INF             .          
+5.7.2        -1.0000         1.0000        +INF             .          
+5.7.3        -1.0000        -1.0000        +INF             .          
+6.7.1        -1.0000          .            +INF             .          
+6.7.2        -1.0000        -1.0000        +INF             .          
+6.7.3        -1.0000        -1.0000        +INF             .          
+
+---- EQU eq7  
+
+                NONE
+
+
+---- EQU eq8  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.2      -100.0000       -13.0000        +INF             .          
+1.3      -100.0000        -7.0000        +INF             .          
+1.4      -100.0000         6.0000        +INF             .          
+1.5      -100.0000        -4.0000        +INF             .          
+1.6      -100.0000      -100.0000        +INF            EPS         
+1.7      -100.0000       -14.0000        +INF             .          
+2.1      -100.0000        -7.0000        +INF             .          
+2.3      -100.0000      -100.0000        +INF            EPS         
+2.4      -100.0000       -87.0000        +INF             .          
+2.5      -100.0000       -97.0000        +INF             .          
+2.6      -100.0000         7.0000        +INF             .          
+2.7      -100.0000        -7.0000        +INF             .          
+3.1      -100.0000       -18.0000        +INF             .          
+3.2      -100.0000       -17.0000        +INF             .          
+3.4      -100.0000       -98.0000        +INF             .          
+3.5      -100.0000        -8.0000        +INF             .          
+3.6      -100.0000        -4.0000        +INF             .          
+3.7      -100.0000       -18.0000        +INF             .          
+4.1      -100.0000       -26.0000        +INF             .          
+4.2      -100.0000       -25.0000        +INF             .          
+4.3      -100.0000       -19.0000        +INF             .          
+4.5      -100.0000       -16.0000        +INF             .          
+4.6      -100.0000       -12.0000        +INF             .          
+4.7      -100.0000       -26.0000        +INF             .          
+5.1      -100.0000       -22.0000        +INF             .          
+5.2      -100.0000       -21.0000        +INF             .          
+5.3      -100.0000       -15.0000        +INF             .          
+5.4      -100.0000        -2.0000        +INF             .          
+5.6      -100.0000        -8.0000        +INF             .          
+5.7      -100.0000       -22.0000        +INF             .          
+6.1      -100.0000       -26.0000        +INF             .          
+6.2      -100.0000       -25.0000        +INF             .          
+6.3      -100.0000       -19.0000        +INF             .          
+6.4      -100.0000        -6.0000        +INF             .          
+6.5      -100.0000       -16.0000        +INF             .          
+6.7      -100.0000       -26.0000        +INF             .          
+7.1      -100.0000       -10.0000        +INF             .          
+7.2      -100.0000        -9.0000        +INF             .          
+7.3      -100.0000        -3.0000        +INF             .          
+7.4      -100.0000        10.0000        +INF             .          
+7.5      -100.0000      -100.0000        +INF             .          
+7.6      -100.0000         4.0000        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU objeq               .              .              .             1.0000      
+
+---- VAR x  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.1          .              .             1.0000        10.0000      
+1.2          .             1.0000         1.0000         6.0000      
+1.3          .              .             1.0000         8.0000      
+2.1          .             1.0000         1.0000         8.0000      
+2.2          .              .             1.0000         5.0000      
+2.3          .              .             1.0000         6.0000      
+3.1          .             1.0000         1.0000        12.0000      
+3.2          .              .             1.0000         7.0000      
+3.3          .              .             1.0000        10.0000      
+4.1          .             1.0000         1.0000        10.0000      
+4.2          .              .             1.0000         6.0000      
+4.3          .              .             1.0000         8.0000      
+5.1          .              .             1.0000         8.0000      
+5.2          .              .             1.0000         5.0000      
+5.3          .             1.0000         1.0000         7.0000      
+6.1          .              .             1.0000        12.0000      
+6.2          .             1.0000         1.0000         7.0000      
+6.3          .              .             1.0000        10.0000      
+7.1          .              .             1.0000        12.0000      
+7.2          .              .             1.0000         7.0000      
+7.3          .             1.0000         1.0000        10.0000      
+
+---- VAR y  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.2          .              .             1.0000         EPS         
+1.3          .              .             1.0000         EPS         
+1.4          .              .             1.0000         EPS         
+1.5          .              .             1.0000         EPS         
+1.6          .             1.0000         1.0000         EPS         
+1.7          .              .             1.0000         EPS         
+2.1          .              .             1.0000         EPS         
+2.3          .             1.0000         1.0000         EPS         
+2.4          .             1.0000         1.0000         EPS         
+2.5          .             1.0000         1.0000         EPS         
+2.6          .              .             1.0000         EPS         
+2.7          .              .             1.0000         EPS         
+3.1          .              .             1.0000         EPS         
+3.2          .              .             1.0000         EPS         
+3.4          .             1.0000         1.0000         EPS         
+3.5          .              .             1.0000         EPS         
+3.6          .              .             1.0000         EPS         
+3.7          .              .             1.0000         EPS         
+4.1          .              .             1.0000         EPS         
+4.2          .              .             1.0000         EPS         
+4.3          .              .             1.0000         EPS         
+4.5          .              .             1.0000         EPS         
+4.6          .              .             1.0000         EPS         
+4.7          .              .             1.0000         EPS         
+5.1          .              .             1.0000         EPS         
+5.2          .              .             1.0000         EPS         
+5.3          .              .             1.0000         EPS         
+5.4          .              .             1.0000         EPS         
+5.6          .              .             1.0000         EPS         
+5.7          .              .             1.0000         EPS         
+6.1          .              .             1.0000         EPS         
+6.2          .              .             1.0000         EPS         
+6.3          .              .             1.0000         EPS         
+6.4          .              .             1.0000         EPS         
+6.5          .              .             1.0000         EPS         
+6.7          .              .             1.0000         EPS         
+7.1          .              .             1.0000         EPS         
+7.2          .              .             1.0000         EPS         
+7.3          .              .             1.0000         EPS         
+7.4          .              .             1.0000         EPS         
+7.5          .             1.0000         1.0000         EPS         
+7.6          .              .             1.0000         EPS         
+
+---- VAR t  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1        -INF            2.0000        +INF             .          
+2        -INF            3.0000        +INF             .          
+3        -INF            9.0000        +INF             .          
+4        -INF           22.0000        +INF             .          
+5        -INF           12.0000        +INF             .          
+6        -INF           16.0000        +INF             .          
+7        -INF            2.0000        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR obj               -INF           60.0000        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.079 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G240530/0001CB-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\CL-USER\Desktop\210106004\JSSP\210106004.gms
+Output     C:\Users\CL-USER\Desktop\210106004\JSSP\210106004.lst

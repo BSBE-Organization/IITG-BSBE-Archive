@@ -1,0 +1,32 @@
+B 3 C o m p i l a t i o n
+B 130 Equation Listing    SOLVE JSSP Using MIP From line 119
+D 133 eq1
+D 144 eq2
+D 155 eq3
+D 166 eq4
+D 175 eq5
+D 186 eq6
+D 197 eq7
+D 202 eq8
+D 213 objeq
+B 219 Column Listing      SOLVE JSSP Using MIP From line 119
+E 222 x
+E 283 y
+E 311 t
+E 366 obj
+B 374 Range Statistics    SOLVE JSSP Using MIP From line 119
+B 385 Model Statistics    SOLVE JSSP Using MIP From line 119
+B 398 Solution Report     SOLVE JSSP Using MIP From line 119
+F 441 eq1
+F 453 eq2
+F 465 eq3
+F 477 eq4
+F 485 eq5
+F 511 eq6
+F 579 eq7
+F 584 eq8
+F 633 objeq
+G 635 x
+G 661 y
+G 708 t
+G 722 obj
