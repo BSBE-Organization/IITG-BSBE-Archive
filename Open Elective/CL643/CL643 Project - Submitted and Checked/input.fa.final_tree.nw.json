@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+#include <fstream>
+using namespace std;
+#define ll long long
+#define int long long
+#define fast ios::sync_with_stdio(false); cin.tie(NULL);
+const int N =1e9+7;
+
+int32_t main() {   
+      int order = 20, bus = 8;
+
+      vector<int>ord(order+1);
+      vector<int>pr(order+1);
+      vector<int,int>cost;
+      vector<int,int>time;
+      vector<int>stationcost;
+      vector<int>stationtime;
+      map<int,vector<int>>mp;
+
+      for (int i = 1; i <order+1; ++i)
+      {
+          mp[ord[i]].push_back(i);
+      }
+      vector<int>totalCost(bus,0);
+      for(auto it:mp)
+      {
+        sort(it.second.begin(), it.second.end(), [&](int a, int b) {
+            return pr[a] < pr[b];
+        };
+      }
+
+      for(auto it:mp)
+      {
+        totalCost(it.first)+=stationcost[it.second[0]];
+
+        for(int i=0;i<it.second.size()-1;i++)
+        {
+            totalCost(it.first)+=cost[it.second[i],it.second[i+1]];
+        }
+
+        totalCost(it.first)+=stationcost[it.second.back()];
+      }
+
+      vector<int>totalTime(bus)=0;
+      for(auto it:mp)
+      {
+        totalTime(it.first)+=stationtime[it.second[0]];
+
+        for(int i=0;i<it.second.size()-1;i++)
+        {
+            totalTime(it.first)+=time[it.second[i],it.second[i+1]];
+        }
+
+        totalTime(it.first)+=stationtime[it.second.back()];
+      }
+}
