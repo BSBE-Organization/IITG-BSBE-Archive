@@ -1,0 +1,12 @@
+I = {1, 2, 3};
+M = {"M1", "M2"};
+
+SheetConnection sheet("Data.xls");
+
+// Read parameter values according to column order
+p from SheetRead(sheet,"Sheet1!B2:C4");    
+r from SheetRead(sheet,"Sheet1!D2:D4");    
+d from SheetRead(sheet,"Sheet1!E2:E4");
+C from SheetRead(sheet,"Sheet1!F2:G4");   
+
+U = 1000;

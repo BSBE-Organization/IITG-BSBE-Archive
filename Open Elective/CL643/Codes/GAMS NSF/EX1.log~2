@@ -1,0 +1,54 @@
+
+--- Job EX1.gms Start 11/09/24 13:18:13 47.6.0 c2de9d6d WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\47\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input "C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms"
+    PageSize 0
+    ScrDir "C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\225a\"
+    SysDir C:\GAMS\47\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: Course License                                 S240930|0002AO-GEN
+          Indian Institute of Technology Guwahati, Chemical EngineerDCE3775
+          C:\Users\adity\OneDrive\Documents\GAMS\gamslice.txt
+          License Admin: Prakash Kotecha, pkotecha@iitg.ac.in              
+          Course license for use within the course and related course work
+          The evaluation period of the license will expire on Dec 29, 2024
+Processor information: 1 socket(s), 14 core(s), and 20 thread(s) available
+GAMS 47.6.0   Copyright (C) 1987-2024 GAMS Development. All rights reserved
+--- Starting compilation
+--- EX1.gms(57) 3 Mb 1 Error
+*** Error 140 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Unknown symbol
+--- EX1.gms(59) 3 Mb 2 Errors
+*** Error 140 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Unknown symbol
+--- EX1.gms(61) 3 Mb 3 Errors
+*** Error 140 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Unknown symbol
+--- EX1.gms(63) 3 Mb 4 Errors
+*** Error 140 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Unknown symbol
+--- EX1.gms(78) 3 Mb 5 Errors
+*** Error 257 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Solve statement not checked because of previous errors
+--- EX1.gms(79) 3 Mb 7 Errors
+*** Error 141 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+*** Error 141 in C:\Users\adity\OneDrive\Desktop\Codes\GAMS NSF\EX1.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- EX1.gms(79) 3 Mb 7 Errors
+*** Status: Compilation error(s)
+--- Job EX1.gms Stop 11/09/24 13:18:13 elapsed 0:00:00.009
