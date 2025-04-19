@@ -1,0 +1,11 @@
+40 Marks paper
+Section A - 10 questions MCQs 1 mark each
+
+
+Section B - 6 questions 6 Marks each attempt any 5
+1) How does an organism keep its transposon in check.
+2) Design a model to check SOS1 function in plant.
+3) Design a model to delay ripening in tomato by using ACC synthase.
+4) Design a method to make stable Ac/Ds mutation in a plant.
+5) How can you use retrotransposon to edit in rice.
+6) What is transgenerational memory in plants.
