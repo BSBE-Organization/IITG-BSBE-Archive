@@ -1,0 +1,43 @@
+50 marks paper
+1) Answer in 1 word, 10 questions 1 mark each
+a) Myoglobin first used to discover alpha helix
+b) rise per turn of 310 helix.
+c) 
+d) 
+e) 
+f) 
+g) 
+h) 
+i) 
+j) 
+
+2) Fill in the blank, 1 mark each 5 questions
+a) E-box
+b) 
+c) 
+d) Hydropathy number
+e) Electrostatic
+
+3) Answer in one line, 5 questions 1 mark each
+a) What is one similarity between enzymes and chemical catalyst.
+b) 
+c) 
+d) 
+e) 
+
+4) Match the following, 5 rows, 3 columns, 1 mark for each row. Columns- Name of enzyme(oxido-reductase, lyase, ligase etc), what happens in the reaction(elimination, hydrolysis, etc), example of the enzyme(name of the enzymes).
+
+2 mark questions from now
+
+5) What are alpha/beta and alpha+beta domain.
+6) What are delta and beta turns?
+7) Explain and draw leucine zipper motif.
+8) What are carboxypeptidase and tell the function of carboxypeptidase A and C.
+9) Charge, distance and relative permeability is given. Calculate potential.
+10) Rotation of residue was given in degrees and rise per residue was given in angstrom. We were told to calculate the number of residues and pitch.
+11) What is Ramachandran plot and what are its uses.
+12) 
+13) 
+14) 
+15) 
+16) Explain along with a diagram, Hoffman fold and (right and left handed) beta-alpha-beta fold. 1.5 marks x 2 = 3 marks
