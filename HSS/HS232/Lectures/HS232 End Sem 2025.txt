@@ -1,0 +1,8 @@
+5 question and 8 marks each, 40 marks paper
+5 identical maps of a state X with 10 district was given.
+12 different data were given- flood hazard, drought hazard, population density, road density, female representation in working population, number of ASHA workers, % of agriculture land, livestock to human ratio, % agriculture fed by rainwater, % land with > 30 degree slope etc.
+a) Calculate risk profile of X state.
+b) Highlight districts with low, moderate and high hazard.
+c) Highlight districts with low, moderate and high exposure.
+d) Highlight districts with low, moderate and high vulnerability.
+e) Highlight districts with low and high dual risk.
