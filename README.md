@@ -8,6 +8,8 @@ This repository is created by Aditya Jindal [210106004] and Sumit Kumar [2101060
 
 Course Review Sheet: https://docs.google.com/spreadsheets/d/1s0Gl7YIuJwLQuCiUUsZDfm66CpXBYQY6Laaj_at_sIc/edit?usp=sharing
 
+BTP Review Sheet: https://docs.google.com/spreadsheets/d/1UZsEdCLu2ZYAiIJr6u7_yhWYsfe2EOjgl5zhzUd5t-o/edit?usp=sharing
+
 ## How to Use
 
 The study materials are organized by year and semester, making it easy to locate resources relevant to your current courses. Simply navigate to the respective directories to find the materials you need.
